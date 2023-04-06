@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Container from 'react-bootstrap/Container';
+import "../node_modules/bootstrap/scss/bootstrap.scss";
+import Home from './components/pages/Home';
+import SinglePost from './components/pages/SinglePost';
+import './App.scss';
+/**app header */
+ import Header from './components/shared/Header';
+import { Route,Routes } from 'react-router-dom';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container fluid>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="SinglePost/:postId" element={<SinglePost/>}></Route>
+      </Routes>
+      
+    </Container>
+    );
 }
 
 export default App;
